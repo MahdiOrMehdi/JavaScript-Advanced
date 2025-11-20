@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ثبت نام مسابقات</title>
+    <link rel="stylesheet" href="/assets/css/Competitions.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1>ثبت نام شرکت‌کنندگان</h1>
+        <p class="subtitle">فقط بالای 18 سال</p>
+      </header>
+
+      <main class="grid">
+        <section class="card form-card">
+          <h2>فرم ثبت نام</h2>
+          <div
+            class="form-message-container"
+            id="formMessageHost"
+            aria-live="polite"
+          ></div>
+          <form id="registrationForm" autocomplete="off">
+            <label class="field">
+              <span>مسابقه</span>
+              <select id="competition" required>
+                <option value="">یک مسابقه انتخاب کنید</option>
+                <option value="مسابقهٔ ۱">مسابقهٔ ۱</option>
+                <option value="مسابقهٔ ۲">مسابقهٔ ۲</option>
+                <option value="مسابقهٔ ۳">مسابقهٔ ۳</option>
+                <option value="مسابقهٔ ۴">مسابقهٔ ۴</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>نام و نام خانوادگی</span>
+              <input
+                id="name"
+                type="text"
+                placeholder="مثلاً: علی رضایی"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span>ایمیل</span>
+              <input
+                id="email"
+                type="email"
+                placeholder="email@example.com"
+                required
+              />
+            </label>
+
+            <label class="field">
+              <span>شماره همراه</span>
+              <input id="phone" type="tel" placeholder="09xxxxxxxx" required />
+            </label>
+
+            <label class="field">
+              <span>سن</span>
+              <input
+                id="age"
+                type="number"
+                min="0"
+                placeholder="مثلاً: 25"
+                required
+              />
+            </label>
+
+            <div class="actions">
+              <button id="registerBtn" type="submit" class="btn primary">
+                ثبت شرکت‌کننده
+              </button>
+              <button id="resetBtn" type="reset" class="btn ghost">
+                پاک کردن
+              </button>
+            </div>
+
+            
+          </form>
+        </section>
+
+        <section class="card list-card">
+          <div class="list-header">
+            <h2>لیست شرکت‌کنندگان</h2>
+            <div class="controls">
+              <input
+                id="search"
+                type="search"
+                placeholder="جستجو بر اساس نام..."
+              />
+              <button id="exportJson" class="btn secondary">دریافت JSON</button>
+            </div>
+          </div>
+
+          <div class="meta">
+            <span>تعداد شرکت‌کنندگان:</span>
+            <span id="count" class="count">0</span>
+          </div>
+
+          <ul id="participantsList" class="participants-list">
+            <li class="empty">هیچ شرکت‌کننده‌ای ثبت نشده است.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+    <script src="/assets/js/Competitions.js" defer></script>
+  </body>
+</html>
