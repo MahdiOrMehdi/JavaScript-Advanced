@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini ToDo</title>
+    <link rel="stylesheet" href="../css/MiniToDo.css" />
+  </head>
+  <body>
+    <main class="todo-app">
+      <header class="todo-header">
+        <h1 class="title">Mini To Do</h1>
+        <p class="btn add-btn cursor-pointer" aria-controls="addModal" id="add-btn"
+          >+ افزودن تسک</p
+        >
+      </header>
+
+      <section class="tasks" id="tasksList" aria-live="polite" itemid="tasks">
+        <p>هنوز هیچ تسکی وجود ندارد.</p>
+      </section>
+
+      <!-- Modal -->
+      <section
+        id="addModal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="addModalTitle"
+      >
+        <div class="modal-content">
+          <h2 id="addModalTitle">افزودن تسک جدید</h2>
+          <form class="modal-form" id="modal-form">
+            <label>
+              عنوان
+              <input
+                type="text"
+                name="title"
+                class="input"
+                placeholder="عنوان تسک"
+                required
+                id="title-input"
+              />
+            </label>
+            <label>
+              توضیحات
+              <textarea
+                name="description"
+                class="input"
+                placeholder="توضیحات بیشتر"
+                rows="4"
+                id="description-text"
+              ></textarea>
+            </label>
+            <div class="modal-actions">
+              <button type="submit" class="btn primary cursor-pointer" data-action="add">
+                افزودن
+              </button>
+              <a class="btn cursor-pointer" id="closebtn">انصراف</a>
+            </div>
+          </form>
+        </div>
+      </section>
+
+
+      <!-- Modal Edit -->
+      <section
+        id="EditModal"
+        class="modal"
+      >
+        <div class="modal-content">
+          <h2>تغییر تسک</h2>
+          <form class="modal-form" id="Edit-form">
+            <label>
+              عنوان
+              <input
+                type="text"
+                name="title"
+                class="input"
+                placeholder="عنوان تسک"
+                required
+                id="title-Edit"
+              />
+            </label>
+            <label>
+              توضیحات
+              <textarea
+                name="description"
+                class="input"
+                placeholder="توضیحات بیشتر"
+                rows="4"
+                id="description-Edit"
+              ></textarea>
+            </label>
+            <div class="modal-actions">
+              <button type="submit" class="btn primary cursor-pointer" data-action="add">
+                تغییر
+              </button>
+              <a class="btn cursor-pointer" id="closebtnEdit">انصراف</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script src="/assets/js/MiniToDo.js"></script>
+  </body>
+</html>

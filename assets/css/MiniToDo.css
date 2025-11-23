@@ -1,0 +1,100 @@
+/* MiniToDo styles (RTL) */
+:root{
+  --bg:#f5f7fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#2563eb;
+  --success:#16a34a;
+  --danger:#ef4444;
+  --radius:10px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Segoe UI, Tahoma, Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,var(--bg),#e9eef9);
+  color:#111827;
+  direction:rtl;
+  -webkit-font-smoothing:antialiased;
+}
+.todo-app{
+  max-width:900px;
+  margin:32px auto;
+  padding:20px;
+}
+.todo-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:18px;
+}
+.title{font-size:1.6rem;margin:0}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:8px;
+  background:transparent;
+  color:var(--accent);
+  text-decoration:none;
+  border:1px solid rgba(37,99,235,0.12);
+}
+.btn.primary{background:var(--accent);color:#fff;border:none}
+.add-btn{font-weight:600}
+
+.tasks{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:14px;
+}
+.task-card{
+  background:var(--card);
+  padding:12px;
+  border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(15,23,42,0.06);
+  transition:transform .14s ease, box-shadow .14s ease;
+  border:1px solid rgba(15,23,42,0.03);
+}
+.task-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(15,23,42,0.08)}
+.task-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.task-title{font-weight:700}
+.task-desc{margin-top:8px;color:var(--muted);font-size:.95rem}
+
+/* Prevent long titles/descriptions from overflowing the card */
+.task-title,
+.task-desc {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.task-icons{display:flex;gap:6px;align-items:center}
+.icon-btn{
+  appearance:none;border:none;background:transparent;padding:6px;border-radius:6px;cursor:pointer;color:var(--muted);
+  display:inline-flex;align-items:center;justify-content:center
+}
+.icon-btn svg{display:block}
+.icon-btn:hover{background:rgba(0,0,0,0.04);color:var(--accent)}
+.icon-btn.delete:hover{color:var(--danger)}
+.icon-btn.mark-done:hover{color:var(--success)}
+.icon-btn.mark-fail:hover{color:var(--danger)}
+
+.task-card.done{background:linear-gradient(90deg,rgba(22,163,74,0.08),rgba(22,163,74,0.02));border-color:rgba(22,163,74,0.18)}
+.task-card.failed{background:linear-gradient(90deg,rgba(239,68,68,0.08),rgba(239,68,68,0.02));border-color:rgba(239,68,68,0.18)}
+
+/* Modal using :target */
+.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(2,6,23,0.45);z-index:60}
+.modal-content{background:var(--card);width:100%;max-width:560px;padding:20px;border-radius:12px;box-shadow:0 12px 40px rgba(2,6,23,0.3)}
+.modal-form{display:flex;flex-direction:column;gap:12px}
+.modal-form label{display:flex;flex-direction:column;gap:6px;font-weight:600;color:#111827}
+.input{padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);font-size:1rem}
+.modal-actions{display:flex;gap:10px;justify-content:flex-start;margin-top:6px}
+.hint{font-size:.86rem;color:var(--muted);margin-top:8px}
+.cursor-pointer{cursor: pointer;}
+@media (max-width:520px){
+  .tasks{grid-template-columns:1fr}
+  .todo-app{padding:12px;margin:18px}
+}
