@@ -1,0 +1,95 @@
+/* style.css - shared styles for MiniToDo */
+:root{
+  --bg:#f7f7fb;
+  --card:#ffffff;
+  --muted:#6b6b7a;
+  --accent:#4f46e5;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --warning:#f59e0b;
+  --shadow: 0 4px 12px rgba(16,24,40,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:linear-gradient(180deg,var(--bg),#eef2ff 60%);
+  color:#111827;
+  padding:24px;
+  direction:rtl;
+}
+
+h1{margin:0 0 18px;font-size:26px;text-align:center}
+
+/* container */
+#taskList{list-style:none;padding:0;margin:18px auto;max-width:760px}
+#taskList li{
+  background:var(--card);
+  border-radius:10px;
+  padding:12px 14px;
+  margin-bottom:12px;
+  box-shadow:var(--shadow);
+  display:block;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+#taskList li:hover{transform:translateY(-2px)}
+
+.task-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.task-title{font-weight:600}
+.task-date{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* action buttons */
+.task-actions button{
+  margin-inline-start:8px;
+  border:0;padding:6px 8px;border-radius:6px;cursor:pointer;color:#fff;
+}
+.task-actions .yellow{background:#f59e0b}
+.task-actions .green{background:var(--success)}
+.task-actions .red{background:var(--danger)}
+.task-actions .orange{background:#9a3412}
+
+.fs_2x{font-size:18px}
+.shadow{box-shadow:0 6px 10px rgba(0,0,0,0.06)}
+
+/* completed states */
+.completed{opacity:0.8;background:linear-gradient(90deg,#e6fffa,#f0fff4)}
+.not-completed{opacity:0.9;background:linear-gradient(90deg,#fff7ed,#fffbf0)}
+
+/* buttons outside list */
+#addTaskBtn{
+  display:block;margin:0 auto 12px auto;padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer;font-size:15px;box-shadow:var(--shadow);
+}
+#addTaskBtn:active{transform:translateY(1px)}
+
+/* dialog styling */
+dialog::backdrop{background:rgba(2,6,23,0.45)}
+dialog{
+  border-radius:10px;padding:0;border:0;background:var(--card);width:min(560px,94%);max-width:95%;box-shadow:0 18px 40px rgba(2,6,23,0.2);
+}
+
+dialog form{padding:18px}
+#modalTitle{margin-top:0;margin-bottom:10px}
+input[type="text"], textarea{
+  width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6ef;margin-bottom:10px;font-size:14px;font-family:inherit;
+}
+textarea{min-height:90px;resize:vertical}
+
+menu{display:flex;gap:8px;justify-content:flex-start}
+menu button{padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
+menu button#saveBtn{background:var(--accent);color:#fff}
+menu button[onclick]{background:#e5e7eb}
+
+/* small utilities */
+.hidden{display:none}
+.center{display:flex;align-items:center;justify-content:center}
+.completed{background-color: #16a34a}
+.not-completed{background-color: #dc2626}
+
+/* responsive */
+@media (max-width:520px){
+  body{padding:12px}
+  .task-header{flex-direction:column;align-items:flex-start}
+  .task-actions{margin-top:8px}
+}
